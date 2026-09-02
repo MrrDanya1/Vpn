@@ -1,5 +1,13 @@
 #profile-title: 67 titki
 {
+  "name": "Пустой сервер",
+  "type": "empty"
+}
+{
+  "name": "Пустой сервер",
+  "type": "empty"
+}
+{
   "dns": {
     "servers": [
       "https://1.1.1.1/dns-query",
