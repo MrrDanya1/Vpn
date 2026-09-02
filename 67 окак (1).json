@@ -1,12 +1,5 @@
-#profile-title: 67 titki
-{
-  "name": "Пустой сервер",
-  "type": "empty"
-}
-{
-  "name": "Пустой сервер",
-  "type": "empty"
-}
+#profile-title: glisti
+
 {
   "dns": {
     "servers": [
@@ -1279,7 +1272,6 @@
     "serverDescription": "Рекомендуем выбрать его"
   }
 }
-}
 {
   "dns": {
     "servers": [
@@ -1737,6 +1729,6 @@
   },
   "remarks": "🇳🇱 Нидерланды",
   "meta": {
-    "serverDescription": "ColaVPN"
+    "serverDescription": "67VPN"
   }
 }
