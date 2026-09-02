@@ -1,1467 +1,1465 @@
-{
-  "dns": {
-    "servers": [
-      {
-        "address": "https://1.1.1.1/dns-query"
-      },
-      {
-        "address": "https://1.0.0.1/dns-query"
-      }
-    ]
-  },
-  "inbounds": [
-    {
-      "tag": "socks",
-      "port": 10808,
-      "listen": "127.0.0.1",
-      "protocol": "socks",
-      "settings": {
-        "udp": true
-      }
-    },
-    {
-      "tag": "http",
-      "port": 10809,
-      "listen": "127.0.0.1",
-      "protocol": "http"
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "proxy",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "ru3.foodandgriil.com",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "ya.ru",
-          "publicKey": "YSYZOtbKB0hUo-to6JMuoxzbjispJlZvBz8y8iiwv2Q",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-2",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "ru15.foodandgriil.com",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "ya.ru",
-          "publicKey": "Bmk7W3LwMYa-v7LGNpYPFSP9Fc4wOsU5ogkRDFuYQyg",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-3",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "201.24.52.147",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "smm.leaderpro.click",
-          "publicKey": "YUKQ2Tl8OxggFQ9JwQOzZ7GlqyDzjV3O8QKN_P19wTg",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-4",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "195.63.140.43",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "admin.kavkazsvyaz.best",
-          "publicKey": "ETs6_ux8XQm-IO1KlPbElASHRx--vbEsbsxu2dwuHBM",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-5",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "88.210.9.121",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "moskva.coachbzns.live",
-          "publicKey": "sv750BNWkMk12R2PsFpv2qXIIGNqMSVhdYW2P0mPZCA",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-6",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "109.107.174.180",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "levelup.coachbzns.live",
-          "publicKey": "Dfj5SnOH5Eh97uIHyZDP1DQPl6vqJB_mmiidJXF2zkE",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-7",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "195.63.132.228",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "vietnam.rigged.asia",
-          "publicKey": "S5AF31z9vBc3dZOiub7pQyZ8UPBJ61F4TrWvXRWKJ08",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-8",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "77.246.99.81",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "hongkong.rigged.asia",
-          "publicKey": "0C8ZlpcZf3zgoUuWA8Xd9t0TMg9EjH1ZbJYPbo2Ifyo",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-9",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "ru1.foodandgriil.com",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "ya.ru",
-          "publicKey": "QIi_zLNMGtyt2QwxRRZ41DRoU57ICSoOvr5GMuiQywA",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-2-2",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "ru3.foodandgriil.com",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "ya.ru",
-          "publicKey": "YSYZOtbKB0hUo-to6JMuoxzbjispJlZvBz8y8iiwv2Q",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-3-2",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "ru2.foodandgriil.com",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "ya.ru",
-          "publicKey": "SNzKbSKY9_vTJ2nQ0bNj_f9St59XjgtoZfx7ua4FuGE",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-4-2",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "ru4.foodandgriil.com",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "ya.ru",
-          "publicKey": "BFhWgaVQp_pWIoCGIwiPXQOp-rrhz5rE24OddTc3alw",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-5-2",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "ru5.foodandgriil.com",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "ya.ru",
-          "publicKey": "Gq_0gCKRiGrYBEzSLX1LIflSwyy_qFtPZf7yjMugr1I",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-6-2",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "ru6.foodandgriil.com",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "ya.ru",
-          "publicKey": "a9h-AhjA_1wvOPY9AcBF7VgX-uSD9B3sU0eY9HdYWwE",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-7-2",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "ru8.foodandgriil.com",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "ya.ru",
-          "publicKey": "O_0GQogb3XlQa4miKAht9LqyLJ6iECwSqKCzg5REFxU",
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "proxy-8-2",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "ru12.foodandgriil.com",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "ya.ru",
-          "publicKey": "6G0zyh-V5SV28jOG99WRCloFugLBtljZyqMjQr33gxk",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-9-2",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "ru13.foodandgriil.com",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "ya.ru",
-          "publicKey": "RR5yQxGFHLJorfUYGgLQf0iqmeGOo9DesDivwYMdBEs",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-10",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "ru14.foodandgriil.com",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "ya.ru",
-          "publicKey": "u9dE2cvj4mjlRvRWugmbxRkzQhbBO_yTSc8dA5gFUhA",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-11",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "ru15.foodandgriil.com",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "ya.ru",
-          "publicKey": "Bmk7W3LwMYa-v7LGNpYPFSP9Fc4wOsU5ogkRDFuYQyg",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-12",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "ru16.foodandgriil.com",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "ya.ru",
-          "publicKey": "nh0MrfcBRjmR0uESc4wZjvOGWugy-6zLipFJ4yztsHw",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-13",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "94.249.180.149",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "msk.tatarpizza.shop",
-          "publicKey": "-kH34NdRF-pBIvngz2jQOzkip_BDBijHeBHbUdDXCyU",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-14",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "104.238.29.130",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "kazan.tatarpizza.shop",
-          "publicKey": "RlH-NMhCyWlq2GzcjT5f3oCZP4sdlg0PgWz1bve6d2g",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-15",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "188.241.241.249",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "pskov.tatarpizza.shop",
-          "publicKey": "lX4yzZR60ivTU7Eilr6TL6jflLF7lcSS6nXuzxaGRDc",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-16",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "94.249.180.163",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "tyumen.tatarpizza.shop",
-          "publicKey": "8IfE0MV2YDGjTjQN7QTIs93yecZaUYkNks81HyfbZWA",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-17",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "94.249.180.164",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "kavkaz.tatarpizza.shop",
-          "publicKey": "WMu0Jxv-OqyckD4ZIE4IsxRNTd6JedPs7jhGBPb2ATE",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-18",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "94.249.180.165",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "novosibirsk.tatarpizza.shop",
-          "publicKey": "CoomcMQy_1wV-8fAeaN2V8GagDEE0StU-hHst-M4nzY",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-19",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "201.24.52.147",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "smm.leaderpro.click",
-          "publicKey": "YUKQ2Tl8OxggFQ9JwQOzZ7GlqyDzjV3O8QKN_P19wTg",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-20",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "72.56.38.70",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "biz.leaderpro.click",
-          "publicKey": "4K9NyBAfeTFYGdM7YRTUG3C9jY2VjbcYhGIgb1TGujQ",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-21",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "46.28.65.28",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "help.leaderpro.click",
-          "publicKey": "u8Thyof9i4tOpbzHt9sUwZ6vDYAilO18oXKXNLnOGGs",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-22",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "46.28.71.169",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "msk.leaderpro.click",
-          "publicKey": "_UR0vMUE4bo_5xwqHnqMyhdmDahhkCktbL_ZVg9Yp3E",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-23",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "37.114.48.143",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "osetia.kavkazsvyaz.best",
-          "publicKey": "hIWm0Rs0apgY8xUmmn2DrqbrrKA4XpzwhqWt6G7lZS0",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-24",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "195.63.140.43",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "admin.kavkazsvyaz.best",
-          "publicKey": "ETs6_ux8XQm-IO1KlPbElASHRx--vbEsbsxu2dwuHBM",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-25",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "88.210.9.121",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "moskva.coachbzns.live",
-          "publicKey": "sv750BNWkMk12R2PsFpv2qXIIGNqMSVhdYW2P0mPZCA",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-26",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "109.107.174.180",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "levelup.coachbzns.live",
-          "publicKey": "Dfj5SnOH5Eh97uIHyZDP1DQPl6vqJB_mmiidJXF2zkE",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-27",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "195.133.80.12",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "ryazan.coachbzns.live",
-          "publicKey": "5KO-SA_yW_01HY9JYMMqw6vVYryeiOg8wIw1uQi8qmg",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-28",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "195.133.80.13",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "admin.coachbzns.live",
-          "publicKey": "Ne9J1Ape9C9oI4_9F77_WB-Z7EynhqIUcHe6sT7hMAk",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-29",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "195.133.80.14",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "piter.coachbzns.live",
-          "publicKey": "m4t45BB9ipYoBjLxngxbE8pedQIBx4aHYI1MrxQiex8",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-30",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "45.90.56.209",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "business.coachbzns.live",
-          "publicKey": "Hywhx5qCGCYnFK3iZF2KojGCZVNFVvjDCNCmiksW6js",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-31",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "135.106.198.151",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "spb.leaderpro.click",
-          "publicKey": "iLbJrIojgnYbL64We7nhlV6mDvTAQ86dDQfF64q4Ezs",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-32",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "23.227.193.12",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "admin.leaderpro.click",
-          "publicKey": "hINiuTRUTjaXfbde_cjQmbF0l4zA5RF-nvK5uENziw8",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-33",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "109.120.178.57",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "elbrus.kavkazsvyaz.best",
-          "publicKey": "IDEqV3X9YmtJL5tcKbKROOFl28yTV0eQAtiQfqtAnQU",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-34",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "38.87.116.185",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "thailand.rigged.asia",
-          "publicKey": "FwFfSjsBBx1-xrTrF2zYEQ0G9-sryc75RQrytKx0swg",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-35",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "195.63.132.228",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "vietnam.rigged.asia",
-          "publicKey": "S5AF31z9vBc3dZOiub7pQyZ8UPBJ61F4TrWvXRWKJ08",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "proxy-36",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "77.246.99.81",
-            "port": 443,
-            "users": [
-              {
-                "id": "f1db46c9-a8c4-4505-a83d-304ea5119686",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "tcpSettings": {},
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "hongkong.rigged.asia",
-          "publicKey": "0C8ZlpcZf3zgoUuWA8Xd9t0TMg9EjH1ZbJYPbo2Ifyo",
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "tag": "direct",
-      "protocol": "freedom"
-    },
-    {
-      "tag": "block",
-      "protocol": "blackhole"
-    },
-    {
-      "tag": "dns-out",
-      "protocol": "dns"
-    }
-  ],
-  "routing": {
-    "domainStrategy": "IPIfNonMatch",
-    "rules": [
-      {
-        "type": "field",
-        "network": "udp",
-        "port": 443,
-        "outboundTag": "block"
-      },
-      {
-        "type": "field",
-        "ip": [
-          "geoip:private"
-        ],
-        "outboundTag": "direct"
-      },
-      {
-        "type": "field",
-        "protocol": [
-          "bittorrent"
-        ],
-        "outboundTag": "block"
-      }
-    ]
-  },
-  "balancers": [
-    {
-      "tag": "Super_Balancer",
-      "selector": [
-        "proxy",
-        "proxy-2",
-        "proxy-3",
-        "proxy-4",
-        "proxy-5",
-        "proxy-6",
-        "proxy-7",
-        "proxy-8",
-        "proxy-9",
-        "proxy-2-2",
-        "proxy-3-2",
-        "proxy-4-2",
-        "proxy-5-2",
-        "proxy-6-2",
-        "proxy-7-2",
-        "proxy-8-2",
-        "proxy-9-2",
-        "proxy-10",
-        "proxy-11",
-        "proxy-12",
-        "proxy-13",
-        "proxy-14",
-        "proxy-15",
-        "proxy-16",
-        "proxy-17",
-        "proxy-18",
-        "proxy-19",
-        "proxy-20",
-        "proxy-21",
-        "proxy-22",
-        "proxy-23",
-        "proxy-24",
-        "proxy-25",
-        "proxy-26",
-        "proxy-27",
-        "proxy-28",
-        "proxy-29",
-        "proxy-30",
-        "proxy-31",
-        "proxy-32",
-        "proxy-33",
-        "proxy-34",
-        "proxy-35",
-        "proxy-36"
-      ],
-      "strategy": {
-        "type": "leastLoad",
-        "settings": {
-          "costs": [
-            {
-              "regexp": ".*",
-              "value": 1
-            }
-          ],
-          "baselines": [
-            1
-          ],
-          "expected": 2,
-          "maxRTT": 2000,
-          "tolerance": 0.01,
-          "fallbackTag": "proxy"
-        }
-      }
-    }
-  ],
-  "observatory": {
-    "subjectSelector": [
-      "proxy",
-      "proxy-2",
-      "proxy-3",
-      "proxy-4",
-      "proxy-5",
-      "proxy-6",
-      "proxy-7",
-      "proxy-8",
-      "proxy-9",
-      "proxy-2-2",
-      "proxy-3-2",
-      "proxy-4-2",
-      "proxy-5-2",
-      "proxy-6-2",
-      "proxy-7-2",
-      "proxy-8-2",
-      "proxy-9-2",
-      "proxy-10",
-      "proxy-11",
-      "proxy-12",
-      "proxy-13",
-      "proxy-14",
-      "proxy-15",
-      "proxy-16",
-      "proxy-17",
-      "proxy-18",
-      "proxy-19",
-      "proxy-20",
-      "proxy-21",
-      "proxy-22",
-      "proxy-23",
-      "proxy-24",
-      "proxy-25",
-      "proxy-26",
-      "proxy-27",
-      "proxy-28",
-      "proxy-29",
-      "proxy-30",
-      "proxy-31",
-      "proxy-32",
-      "proxy-33",
-      "proxy-34",
-      "proxy-35",
-      "proxy-36"
-    ],
-    "probeUrl": "http://www.gstatic.com/generate_204",
-    "probeInterval": "30s"
-  },
-  "remarks": "67 окак",
-  "meta": {
-    "serverDescription": "Рекомендуем выбрать его"
-  }
+<!DOCTYPE html><html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Happ Server Manager</title><style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    background:#07100b;
+    color:#ecfff2;
+    font-family:Arial,sans-serif;
 }
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:18px;
+}
+
+h1{
+    margin:0;
+    color:#39ff88;
+    font-size:26px;
+}
+
+.subtitle{
+    color:#7f9b87;
+    margin:7px 0 20px;
+}
+
+.card{
+    background:#0c1910;
+    border:1px solid #1b3b26;
+    border-radius:15px;
+    padding:16px;
+    margin-bottom:15px;
+}
+
+h2,h3{
+    margin-top:0;
+}
+
+label{
+    display:block;
+    color:#9db6a5;
+    margin-bottom:7px;
+}
+
+input,textarea{
+    width:100%;
+    background:#07110b;
+    border:1px solid #254d31;
+    border-radius:10px;
+    color:#fff;
+    padding:12px;
+    outline:none;
+    font-size:14px;
+}
+
+input:focus,
+textarea:focus{
+    border-color:#39ff88;
+}
+
+textarea{
+    min-height:190px;
+    resize:vertical;
+    font-family:monospace;
+}
+
+button{
+    border:0;
+    border-radius:10px;
+    padding:12px 15px;
+    margin-top:9px;
+    cursor:pointer;
+    font-weight:bold;
+    background:#39ff88;
+    color:#061009;
+}
+
+button:hover{
+    filter:brightness(.92);
+}
+
+button.secondary{
+    background:#183c25;
+    color:#c8ffd9;
+}
+
+button.danger{
+    background:#471a1e;
+    color:#ffadb3;
+}
+
+button.blue{
+    background:#17476b;
+    color:#c8eaff;
+}
+
+.buttons{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.server{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:12px;
+    background:#08130c;
+    border:1px solid #193a24;
+    border-radius:11px;
+    margin-top:8px;
+}
+
+.server-info{
+    min-width:0;
+}
+
+.server-title{
+    color:#39ff88;
+    font-weight:bold;
+    word-break:break-word;
+}
+
+.server-address{
+    color:#708879;
+    font-size:12px;
+    margin-top:4px;
+    word-break:break-all;
+}
+
+.auto{
+    border-color:#39ff88;
+}
+
+.auto .server-title{
+    color:#fff;
+}
+
+.badge{
+    display:inline-block;
+    font-size:11px;
+    padding:4px 7px;
+    border-radius:7px;
+    background:#183c25;
+    color:#8cffad;
+    margin-left:5px;
+}
+
+.empty{
+    text-align:center;
+    padding:20px;
+    color:#63796a;
+}
+
+#status{
+    margin-top:10px;
+    min-height:18px;
+    color:#7dffab;
+}
+
+pre{
+    background:#050a07;
+    border:1px solid #193a24;
+    border-radius:10px;
+    padding:13px;
+    overflow:auto;
+    max-height:500px;
+    font-size:12px;
+    white-space:pre-wrap;
+    word-break:break-word;
+}
+
+.info{
+    color:#829b89;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.counter{
+    color:#8ca995;
+    margin-bottom:10px;
+}
+
+.counter b{
+    color:#39ff88;
+}
+</style></head><body><div class="container"><h1>Happ Server Manager</h1><div class="subtitle">
+1 JSON = 1 отдельный сервер
+</div><!-- НАЗВАНИЕ СПИСКА --><div class="card"><h3>Название списка</h3><label>
+Название списка серверов
+</label><input
+id="listName"
+placeholder="Например: Мои серверы"
+
+«»
+
+<div class="buttons"><button onclick="saveListName()">
+    Сохранить
+</button></div></div><!-- ДОБАВЛЕНИЕ --><div class="card"><h3>Добавить сервер</h3><div class="info">
+Скопируй JSON одного сервера и нажми «Вставить из буфера».
+После добавления сервер появится отдельным пунктом.
+</div><textarea
+    id="jsonInput"
+    placeholder='Сюда можно вставить JSON вручную...'
+></textarea><div class="buttons"><button
+class="blue"
+onclick="pasteClipboard()"
+
+«»
+
+📋 Вставить из буфера
+
+</button><button onclick="addServer()">
+    ＋ Добавить JSON
+</button><button
+class="secondary"
+onclick="clearInput()"
+
+«»
+
+Очистить
+
+</button></div><div id="status"></div></div><!-- СПИСОК --><div class="card"><h3>Сервера</h3><div class="counter">
+Добавлено:
+<b id="count">0</b>
+</div><div id="servers"></div></div><!-- ИТОГ --><div class="card"><h3>Итоговый JSON</h3><div class="info">
+В начале находится отдельный Auto-сервер, затем все серверы по отдельности.
+</div><pre id="output"></pre><div class="buttons"><button onclick="copyOutput()">
+    📋 Скопировать
+</button><button
+class="secondary"
+onclick="downloadJSON()"
+
+«»
+
+Скачать JSON
+
+</button><button
+class="danger"
+onclick="clearAll()"
+
+«»
+
+Удалить всё
+
+</button></div></div></div><script>
+
+/* =====================================
+   STORAGE
+===================================== */
+
+const STORAGE_SERVERS = "happ_servers_v3";
+const STORAGE_NAME = "happ_list_name_v3";
+
+let servers = [];
+
+try{
+    servers =
+        JSON.parse(
+            localStorage.getItem(STORAGE_SERVERS) || "[]"
+        );
+
+    if(!Array.isArray(servers)){
+        servers = [];
+    }
+
+}catch{
+    servers = [];
+}
+
+let listName =
+    localStorage.getItem(STORAGE_NAME) ||
+    "Мои серверы";
+
+document.getElementById("listName").value = listName;
+
+
+/* =====================================
+   STORAGE SAVE
+===================================== */
+
+function save(){
+
+    localStorage.setItem(
+        STORAGE_SERVERS,
+        JSON.stringify(servers)
+    );
+
+    localStorage.setItem(
+        STORAGE_NAME,
+        listName
+    );
+
+}
+
+
+/* =====================================
+   STATUS
+===================================== */
+
+function status(text){
+
+    const el =
+        document.getElementById("status");
+
+    el.textContent = text;
+
+    clearTimeout(window.statusTimer);
+
+    window.statusTimer =
+        setTimeout(()=>{
+            el.textContent = "";
+        },3500);
+
+}
+
+
+/* =====================================
+   LIST NAME
+===================================== */
+
+function saveListName(){
+
+    const value =
+        document
+        .getElementById("listName")
+        .value
+        .trim();
+
+    if(!value){
+
+        status("Введите название списка");
+
+        return;
+    }
+
+    listName = value;
+
+    save();
+
+    generate();
+
+    status("Название сохранено");
+
+}
+
+
+/* =====================================
+   CLIPBOARD
+===================================== */
+
+async function pasteClipboard(){
+
+    /*
+       Сначала пробуем современный Clipboard API.
+    */
+
+    try{
+
+        if(
+            navigator.clipboard &&
+            navigator.clipboard.readText
+        ){
+
+            const text =
+                await navigator.clipboard.readText();
+
+            if(text && text.trim()){
+
+                document
+                .getElementById("jsonInput")
+                .value = text;
+
+                status(
+                    "JSON вставлен из буфера"
+                );
+
+                /*
+                   Сразу добавляем.
+                */
+
+                addServer();
+
+                return;
+            }
+
+        }
+
+    }catch(error){
+
+        console.log(
+            "Clipboard API:",
+            error
+        );
+
+    }
+
+
+    /*
+       Если браузер запретил чтение буфера,
+       невозможно программно получить его
+       содержимое без разрешения браузера.
+
+       Поэтому фокусируем поле и предлагаем
+       обычную вставку.
+    */
+
+    const input =
+        document.getElementById("jsonInput");
+
+    input.focus();
+
+    status(
+        "Автовставка запрещена браузером — вставь JSON сюда через «Вставить»"
+    );
+
+}
+
+
+/* =====================================
+   ДОБАВЛЕНИЕ
+===================================== */
+
+function addServer(){
+
+    const input =
+        document.getElementById("jsonInput");
+
+    const text =
+        input.value.trim();
+
+    if(!text){
+
+        status("JSON пустой");
+
+        input.focus();
+
+        return;
+    }
+
+
+    let json;
+
+    try{
+
+        json = JSON.parse(text);
+
+    }catch(error){
+
+        status(
+            "Ошибка JSON: проверь формат"
+        );
+
+        return;
+    }
+
+
+    /*
+       ВАЖНО:
+
+       Если это полноценный Xray config
+       с outbounds, берём только ОДИН
+       proxy-outbound.
+
+       Поэтому один JSON-файл = один сервер.
+    */
+
+    const server =
+        extractOneServer(json);
+
+
+    if(!server){
+
+        status(
+            "Не найден сервер в JSON"
+        );
+
+        return;
+    }
+
+
+    /*
+       Каждый добавленный JSON получает
+       свой уникальный tag.
+    */
+
+    server.tag =
+        createUniqueTag(
+            server.tag ||
+            getServerName(server)
+        );
+
+
+    servers.push(server);
+
+    save();
+
+    input.value = "";
+
+    render();
+
+    generate();
+
+    status(
+        "Сервер добавлен отдельно"
+    );
+
+}
+
+
+/* =====================================
+   ПОЛУЧИТЬ ОДИН СЕРВЕР
+===================================== */
+
+function extractOneServer(json){
+
+    /*
+       Вариант:
+
+       Сам сервер уже является объектом.
+    */
+
+    if(
+        json &&
+        typeof json === "object" &&
+        json.protocol &&
+        isSupportedProtocol(json.protocol)
+    ){
+
+        return cleanServer(json);
+    }
+
+
+    /*
+       Полный Xray config:
+
+       outbounds: [
+          proxy,
+          direct,
+          block
+       ]
+
+       Берём только первый настоящий proxy.
+    */
+
+    if(
+        json &&
+        Array.isArray(json.outbounds)
+    ){
+
+        const proxy =
+            json.outbounds.find(
+                item =>
+                    item &&
+                    item.protocol &&
+                    isSupportedProtocol(
+                        item.protocol
+                    ) &&
+                    item.tag !== "direct" &&
+                    item.tag !== "block" &&
+                    item.tag !== "dns-out"
+            );
+
+
+        if(proxy){
+
+            return cleanServer(proxy);
+        }
+
+    }
+
+
+    /*
+       Если сервер лежит в servers.
+    */
+
+    if(
+        json &&
+        Array.isArray(json.servers)
+    ){
+
+        const server =
+            json.servers.find(
+                item =>
+                    item &&
+                    item.protocol &&
+                    isSupportedProtocol(
+                        item.protocol
+                    )
+            );
+
+        if(server){
+
+            return cleanServer(server);
+        }
+
+    }
+
+
+    /*
+       Если формат:
+
+       {
+          "server": {...}
+       }
+    */
+
+    if(
+        json &&
+        json.server &&
+        typeof json.server === "object" &&
+        json.server.protocol
+    ){
+
+        return cleanServer(
+            json.server
+        );
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =====================================
+   ПРОТОКОЛЫ
+===================================== */
+
+function isSupportedProtocol(protocol){
+
+    return [
+        "vless",
+        "vmess",
+        "trojan",
+        "shadowsocks",
+        "http",
+        "socks"
+    ].includes(
+        String(protocol).toLowerCase()
+    );
+
+}
+
+
+/* =====================================
+   КОПИЯ СЕРВЕРА
+===================================== */
+
+function cleanServer(server){
+
+    return JSON.parse(
+        JSON.stringify(server)
+    );
+
+}
+
+
+/* =====================================
+   УНИКАЛЬНЫЙ TAG
+===================================== */
+
+function createUniqueTag(base){
+
+    let clean =
+        String(base)
+        .replace(/[^\wа-яА-ЯёЁ -]/g,"")
+        .trim();
+
+    if(!clean){
+
+        clean = "proxy";
+
+    }
+
+
+    /*
+       Если это стандартный tag proxy,
+       превращаем в Server 1,
+       Server 2 и т.д.
+    */
+
+    let candidate = clean;
+
+    let number = 2;
+
+
+    while(
+        servers.some(
+            s => s.tag === candidate
+        )
+    ){
+
+        candidate =
+            clean + "-" + number;
+
+        number++;
+
+    }
+
+
+    return candidate;
+
+}
+
+
+/* =====================================
+   ИМЯ СЕРВЕРА
+===================================== */
+
+function getServerName(server){
+
+    try{
+
+        if(
+            server.settings &&
+            server.settings.vnext &&
+            server.settings.vnext[0]
+        ){
+
+            return (
+                server.settings.vnext[0].address ||
+                "Server"
+            );
+
+        }
+
+        if(
+            server.settings &&
+            server.settings.servers &&
+            server.settings.servers[0]
+        ){
+
+            return (
+                server.settings.servers[0].address ||
+                "Server"
+            );
+
+        }
+
+    }catch{}
+
+    return "Server";
+
+}
+
+
+/* =====================================
+   RENDER
+===================================== */
+
+function render(){
+
+    const box =
+        document.getElementById("servers");
+
+    document.getElementById(
+        "count"
+    ).textContent = servers.length;
+
+
+    if(servers.length === 0){
+
+        box.innerHTML =
+            `<div class="empty">
+                Пока нет добавленных серверов
+            </div>`;
+
+        return;
+
+    }
+
+
+    box.innerHTML = "";
+
+
+    servers.forEach(
+        (server,index)=>{
+
+            const address =
+                getAddress(server);
+
+
+            const div =
+                document.createElement("div");
+
+            div.className = "server";
+
+
+            div.innerHTML = `
+
+                <div class="server-info">
+
+                    <div class="server-title">
+                        ${escapeHTML(
+                            server.tag ||
+                            "Server"
+                        )}
+
+                        <span class="badge">
+                            ${escapeHTML(
+                                server.protocol ||
+                                ""
+                            )}
+                        </span>
+                    </div>
+
+                    <div class="server-address">
+                        ${escapeHTML(address)}
+                    </div>
+
+                </div>
+
+                <button
+                    class="danger"
+                    onclick="deleteServer(${index})"
+                >
+                    Удалить
+                </button>
+
+            `;
+
+
+            box.appendChild(div);
+
+        }
+    );
+
+}
+
+
+/* =====================================
+   ADDRESS
+===================================== */
+
+function getAddress(server){
+
+    try{
+
+        if(
+            server.settings &&
+            server.settings.vnext &&
+            server.settings.vnext[0]
+        ){
+
+            const v =
+                server.settings.vnext[0];
+
+            return (
+                v.address +
+                (v.port
+                    ? ":" + v.port
+                    : "")
+            );
+
+        }
+
+
+        if(
+            server.settings &&
+            server.settings.servers &&
+            server.settings.servers[0]
+        ){
+
+            const v =
+                server.settings.servers[0];
+
+            return (
+                v.address ||
+                v.host ||
+                "Server"
+            );
+
+        }
+
+    }catch{}
+
+    return "Адрес не определён";
+
+}
+
+
+/* =====================================
+   DELETE
+===================================== */
+
+function deleteServer(index){
+
+    if(
+        !confirm(
+            "Удалить этот сервер?"
+        )
+    ){
+
+        return;
+    }
+
+
+    servers.splice(index,1);
+
+    save();
+
+    render();
+
+    generate();
+
+    status("Сервер удалён");
+
+}
+
+
+/* =====================================
+   AUTO
+===================================== */
+
+function createAutoOutbound(){
+
+    /*
+       Это отдельный outbound.
+
+       Он не заменяет отдельные серверы.
+       Он использует их как кандидатов.
+    */
+
+    const tags =
+        servers.map(
+            server => server.tag
+        );
+
+
+    if(tags.length === 0){
+
+        return null;
+
+    }
+
+
+    return {
+
+        tag:
+            "🔁 Авто — самый быстрый",
+
+        protocol:
+            "freedom",
+
+        settings: {},
+
+        streamSettings: {},
+
+        /* служебная информация для списка */
+        _autoBalancer:
+            "Super_Balancer",
+
+        _servers:
+            tags
+
+    };
+
+}
+
+
+/* =====================================
+   GENERATE
+===================================== */
+
+function generate(){
+
+    /*
+       Создаём отдельные outbounds.
+
+       ВАЖНО:
+       servers остаются отдельными объектами.
+    */
+
+    const separateServers =
+        servers.map(
+            server =>
+                JSON.parse(
+                    JSON.stringify(server)
+                )
+        );
+
+
+    const auto =
+        createAutoOutbound();
+
+
+    const outbounds = [];
+
+
+    /*
+       Сначала Auto.
+    */
+
+    if(auto){
+
+        outbounds.push(auto);
+
+    }
+
+
+    /*
+       Затем каждый сервер отдельно.
+    */
+
+    outbounds.push(
+        ...separateServers
+    );
+
+
+    /*
+       Служебные outbounds.
+    */
+
+    outbounds.push({
+
+        tag:"direct",
+
+        protocol:"freedom"
+
+    });
+
+
+    outbounds.push({
+
+        tag:"block",
+
+        protocol:"blackhole"
+
+    });
+
+
+    outbounds.push({
+
+        tag:"dns-out",
+
+        protocol:"dns"
+
+    });
+
+
+    /*
+       Балансировщик.
+
+       Он выбирает между реальными серверами.
+    */
+
+    const tags =
+        servers.map(
+            s => s.tag
+        );
+
+
+    const config = {
+
+        remarks:
+            listName,
+
+
+        meta:{
+
+            serverDescription:
+                "🔁 Авто — самый быстрый"
+
+        },
+
+
+        dns:{
+
+            servers:[
+
+                "https://1.1.1.1/dns-query",
+
+                "https://1.0.0.1/dns-query"
+
+            ],
+
+            queryStrategy:
+                "UseIPv4"
+
+        },
+
+
+        routing:{
+
+            domainStrategy:
+                "AsIs",
+
+            rules:[
+
+                {
+
+                    type:"field",
+
+                    port:"53",
+
+                    network:"tcp,udp",
+
+                    outboundTag:"dns-out"
+
+                },
+
+                {
+
+                    type:"field",
+
+                    protocol:[
+                        "bittorrent"
+                    ],
+
+                    outboundTag:"block"
+
+                },
+
+                {
+
+                    type:"field",
+
+                    ip:[
+
+                        "10.0.0.0/8",
+
+                        "172.16.0.0/12",
+
+                        "192.168.0.0/16",
+
+                        "127.0.0.0/8",
+
+                        "::1/128",
+
+                        "fc00::/7",
+
+                        "fe80::/10"
+
+                    ],
+
+                    outboundTag:"direct"
+
+                }
+
+            ],
+
+            balancers: tags.length
+                ? [
+
+                    {
+
+                        tag:
+                            "Super_Balancer",
+
+                        selector:
+                            tags,
+
+                        strategy:{
+
+                            type:
+                                "leastLoad",
+
+                            settings:{
+
+                                maxRTT:
+                                    "2s",
+
+                                expected:
+                                    2,
+
+                                baselines:[
+                                    "1s"
+                                ],
+
+                                tolerance:
+                                    0.01
+
+                            }
+
+                        },
+
+                        fallbackTag:
+                            tags[0]
+
+                    }
+
+                ]
+
+                : []
+
+        },
+
+
+        inbounds:[
+
+            {
+
+                tag:"socks",
+
+                port:10808,
+
+                listen:"127.0.0.1",
+
+                protocol:"socks",
+
+                settings:{
+
+                    udp:true,
+
+                    auth:"noauth"
+
+                },
+
+                sniffing:{
+
+                    enabled:true,
+
+                    routeOnly:false,
+
+                    destOverride:[
+
+                        "http",
+
+                        "tls",
+
+                        "quic"
+
+                    ]
+
+                }
+
+            },
+
+            {
+
+                tag:"http",
+
+                port:10809,
+
+                listen:"127.0.0.1",
+
+                protocol:"http",
+
+                settings:{
+
+                    allowTransparent:false
+
+                }
+
+            }
+
+        ],
+
+
+        outbounds:
+
+            outbounds,
+
+
+        observatory:{
+
+            subjectSelector:
+                tags,
+
+            probeUrl:
+                "http://www.gstatic.com/generate_204",
+
+            probeInterval:
+                "30s"
+
+        }
+
+    };
+
+
+    document.getElementById(
+        "output"
+    ).textContent =
+        JSON.stringify(
+            config,
+            null,
+            2
+        );
+
+}
+
+
+/* =====================================
+   COPY
+===================================== */
+
+async function copyOutput(){
+
+    const text =
+        document.getElementById(
+            "output"
+        ).textContent;
+
+
+    try{
+
+        await navigator.clipboard.writeText(text);
+
+        status(
+            "Итоговый JSON скопирован"
+        );
+
+    }catch{
+
+        /*
+           Резервный способ.
+        */
+
+        const area =
+            document.createElement("textarea");
+
+        area.value = text;
+
+        document.body.appendChild(area);
+
+        area.select();
+
+        document.execCommand("copy");
+
+        area.remove();
+
+        status(
+            "Итоговый JSON скопирован"
+        );
+
+    }
+
+}
+
+
+/* =====================================
+   DOWNLOAD
+===================================== */
+
+function downloadJSON(){
+
+    const text =
+        document.getElementById(
+            "output"
+        ).textContent;
+
+
+    const blob =
+        new Blob(
+            [text],
+            {
+                type:"application/json"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const a =
+        document.createElement("a");
+
+
+    a.href = url;
+
+    a.download =
+        safeFileName(listName)
+        + ".json";
+
+
+    document.body.appendChild(a);
+
+    a.click();
+
+    a.remove();
+
+    URL.revokeObjectURL(url);
+
+}
+
+
+/* =====================================
+   CLEAR
+===================================== */
+
+function clearInput(){
+
+    document.getElementById(
+        "jsonInput"
+    ).value = "";
+
+}
+
+
+/* =====================================
+   CLEAR ALL
+===================================== */
+
+function clearAll(){
+
+    if(
+        !confirm(
+            "Удалить все серверы?"
+        )
+    ){
+
+        return;
+    }
+
+
+    servers = [];
+
+    save();
+
+    render();
+
+    generate();
+
+    status(
+        "Все серверы удалены"
+    );
+
+}
+
+
+/* =====================================
+   HELPERS
+===================================== */
+
+function safeFileName(name){
+
+    return String(name)
+        .replace(/[\\/:*?"<>|]/g,"_")
+        .trim() ||
+        "servers";
+
+}
+
+
+function escapeHTML(text){
+
+    return String(text)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
+}
+
+
+/* =====================================
+   START
+===================================== */
+
+render();
+
+generate();
+
+</script></body>
+</html>
