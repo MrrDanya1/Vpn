@@ -1,0 +1,19 @@
+{
+  // ... общие настройки DNS, маршрутизации ...
+  "routing": {
+    "balancers": [
+      {
+        "tag": "Super_Balancer",    // для российских серверов
+        "selector": ["proxy"]
+      },
+      {
+        "tag": "Netherlands_Balancer", // для нидерландских серверов
+        "selector": ["netherlands"]
+      }
+    ]
+  },
+  "outbounds": [
+    // ... все серверы с тегами "proxy", "proxy-2", ... (36 шт)
+    // ... все серверы с тегами "netherlands", "netherlands-2", ... (8 шт)
+  ]
+}
