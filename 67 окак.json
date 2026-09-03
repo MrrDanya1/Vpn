@@ -1,1465 +1,204 @@
-<!DOCTYPE html><html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Happ Server Manager</title><style>
-*{box-sizing:border-box}
-
-body{
-    margin:0;
-    background:#07100b;
-    color:#ecfff2;
-    font-family:Arial,sans-serif;
-}
-
-.container{
-    max-width:900px;
-    margin:auto;
-    padding:18px;
-}
-
-h1{
-    margin:0;
-    color:#39ff88;
-    font-size:26px;
-}
-
-.subtitle{
-    color:#7f9b87;
-    margin:7px 0 20px;
-}
-
-.card{
-    background:#0c1910;
-    border:1px solid #1b3b26;
-    border-radius:15px;
-    padding:16px;
-    margin-bottom:15px;
-}
-
-h2,h3{
-    margin-top:0;
-}
-
-label{
-    display:block;
-    color:#9db6a5;
-    margin-bottom:7px;
-}
-
-input,textarea{
-    width:100%;
-    background:#07110b;
-    border:1px solid #254d31;
-    border-radius:10px;
-    color:#fff;
-    padding:12px;
-    outline:none;
-    font-size:14px;
-}
-
-input:focus,
-textarea:focus{
-    border-color:#39ff88;
-}
-
-textarea{
-    min-height:190px;
-    resize:vertical;
-    font-family:monospace;
-}
-
-button{
-    border:0;
-    border-radius:10px;
-    padding:12px 15px;
-    margin-top:9px;
-    cursor:pointer;
-    font-weight:bold;
-    background:#39ff88;
-    color:#061009;
-}
-
-button:hover{
-    filter:brightness(.92);
-}
-
-button.secondary{
-    background:#183c25;
-    color:#c8ffd9;
-}
-
-button.danger{
-    background:#471a1e;
-    color:#ffadb3;
-}
-
-button.blue{
-    background:#17476b;
-    color:#c8eaff;
-}
-
-.buttons{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-}
-
-.server{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-    padding:12px;
-    background:#08130c;
-    border:1px solid #193a24;
-    border-radius:11px;
-    margin-top:8px;
-}
-
-.server-info{
-    min-width:0;
-}
-
-.server-title{
-    color:#39ff88;
-    font-weight:bold;
-    word-break:break-word;
-}
-
-.server-address{
-    color:#708879;
-    font-size:12px;
-    margin-top:4px;
-    word-break:break-all;
-}
-
-.auto{
-    border-color:#39ff88;
-}
-
-.auto .server-title{
-    color:#fff;
-}
-
-.badge{
-    display:inline-block;
-    font-size:11px;
-    padding:4px 7px;
-    border-radius:7px;
-    background:#183c25;
-    color:#8cffad;
-    margin-left:5px;
-}
-
-.empty{
-    text-align:center;
-    padding:20px;
-    color:#63796a;
-}
-
-#status{
-    margin-top:10px;
-    min-height:18px;
-    color:#7dffab;
-}
-
-pre{
-    background:#050a07;
-    border:1px solid #193a24;
-    border-radius:10px;
-    padding:13px;
-    overflow:auto;
-    max-height:500px;
-    font-size:12px;
-    white-space:pre-wrap;
-    word-break:break-word;
-}
-
-.info{
-    color:#829b89;
-    font-size:13px;
-    line-height:1.5;
-}
-
-.counter{
-    color:#8ca995;
-    margin-bottom:10px;
-}
-
-.counter b{
-    color:#39ff88;
-}
-</style></head><body><div class="container"><h1>Happ Server Manager</h1><div class="subtitle">
-1 JSON = 1 отдельный сервер
-</div><!-- НАЗВАНИЕ СПИСКА --><div class="card"><h3>Название списка</h3><label>
-Название списка серверов
-</label><input
-id="listName"
-placeholder="Например: Мои серверы"
-
-«»
-
-<div class="buttons"><button onclick="saveListName()">
-    Сохранить
-</button></div></div><!-- ДОБАВЛЕНИЕ --><div class="card"><h3>Добавить сервер</h3><div class="info">
-Скопируй JSON одного сервера и нажми «Вставить из буфера».
-После добавления сервер появится отдельным пунктом.
-</div><textarea
-    id="jsonInput"
-    placeholder='Сюда можно вставить JSON вручную...'
-></textarea><div class="buttons"><button
-class="blue"
-onclick="pasteClipboard()"
-
-«»
-
-📋 Вставить из буфера
-
-</button><button onclick="addServer()">
-    ＋ Добавить JSON
-</button><button
-class="secondary"
-onclick="clearInput()"
-
-«»
-
-Очистить
-
-</button></div><div id="status"></div></div><!-- СПИСОК --><div class="card"><h3>Сервера</h3><div class="counter">
-Добавлено:
-<b id="count">0</b>
-</div><div id="servers"></div></div><!-- ИТОГ --><div class="card"><h3>Итоговый JSON</h3><div class="info">
-В начале находится отдельный Auto-сервер, затем все серверы по отдельности.
-</div><pre id="output"></pre><div class="buttons"><button onclick="copyOutput()">
-    📋 Скопировать
-</button><button
-class="secondary"
-onclick="downloadJSON()"
-
-«»
-
-Скачать JSON
-
-</button><button
-class="danger"
-onclick="clearAll()"
-
-«»
-
-Удалить всё
-
-</button></div></div></div><script>
-
-/* =====================================
-   STORAGE
-===================================== */
-
-const STORAGE_SERVERS = "happ_servers_v3";
-const STORAGE_NAME = "happ_list_name_v3";
-
-let servers = [];
-
-try{
-    servers =
-        JSON.parse(
-            localStorage.getItem(STORAGE_SERVERS) || "[]"
-        );
-
-    if(!Array.isArray(servers)){
-        servers = [];
-    }
-
-}catch{
-    servers = [];
-}
-
-let listName =
-    localStorage.getItem(STORAGE_NAME) ||
-    "Мои серверы";
-
-document.getElementById("listName").value = listName;
-
-
-/* =====================================
-   STORAGE SAVE
-===================================== */
-
-function save(){
-
-    localStorage.setItem(
-        STORAGE_SERVERS,
-        JSON.stringify(servers)
-    );
-
-    localStorage.setItem(
-        STORAGE_NAME,
-        listName
-    );
-
-}
-
-
-/* =====================================
-   STATUS
-===================================== */
-
-function status(text){
-
-    const el =
-        document.getElementById("status");
-
-    el.textContent = text;
-
-    clearTimeout(window.statusTimer);
-
-    window.statusTimer =
-        setTimeout(()=>{
-            el.textContent = "";
-        },3500);
-
-}
-
-
-/* =====================================
-   LIST NAME
-===================================== */
-
-function saveListName(){
-
-    const value =
-        document
-        .getElementById("listName")
-        .value
-        .trim();
-
-    if(!value){
-
-        status("Введите название списка");
-
-        return;
-    }
-
-    listName = value;
-
-    save();
-
-    generate();
-
-    status("Название сохранено");
-
-}
-
-
-/* =====================================
-   CLIPBOARD
-===================================== */
-
-async function pasteClipboard(){
-
-    /*
-       Сначала пробуем современный Clipboard API.
-    */
-
-    try{
-
-        if(
-            navigator.clipboard &&
-            navigator.clipboard.readText
-        ){
-
-            const text =
-                await navigator.clipboard.readText();
-
-            if(text && text.trim()){
-
-                document
-                .getElementById("jsonInput")
-                .value = text;
-
-                status(
-                    "JSON вставлен из буфера"
-                );
-
-                /*
-                   Сразу добавляем.
-                */
-
-                addServer();
-
-                return;
-            }
-
-        }
-
-    }catch(error){
-
-        console.log(
-            "Clipboard API:",
-            error
-        );
-
-    }
-
-
-    /*
-       Если браузер запретил чтение буфера,
-       невозможно программно получить его
-       содержимое без разрешения браузера.
-
-       Поэтому фокусируем поле и предлагаем
-       обычную вставку.
-    */
-
-    const input =
-        document.getElementById("jsonInput");
-
-    input.focus();
-
-    status(
-        "Автовставка запрещена браузером — вставь JSON сюда через «Вставить»"
-    );
-
-}
-
-
-/* =====================================
-   ДОБАВЛЕНИЕ
-===================================== */
-
-function addServer(){
-
-    const input =
-        document.getElementById("jsonInput");
-
-    const text =
-        input.value.trim();
-
-    if(!text){
-
-        status("JSON пустой");
-
-        input.focus();
-
-        return;
-    }
-
-
-    let json;
-
-    try{
-
-        json = JSON.parse(text);
-
-    }catch(error){
-
-        status(
-            "Ошибка JSON: проверь формат"
-        );
-
-        return;
-    }
-
-
-    /*
-       ВАЖНО:
-
-       Если это полноценный Xray config
-       с outbounds, берём только ОДИН
-       proxy-outbound.
-
-       Поэтому один JSON-файл = один сервер.
-    */
-
-    const server =
-        extractOneServer(json);
-
-
-    if(!server){
-
-        status(
-            "Не найден сервер в JSON"
-        );
-
-        return;
-    }
-
-
-    /*
-       Каждый добавленный JSON получает
-       свой уникальный tag.
-    */
-
-    server.tag =
-        createUniqueTag(
-            server.tag ||
-            getServerName(server)
-        );
-
-
-    servers.push(server);
-
-    save();
-
-    input.value = "";
-
-    render();
-
-    generate();
-
-    status(
-        "Сервер добавлен отдельно"
-    );
-
-}
-
-
-/* =====================================
-   ПОЛУЧИТЬ ОДИН СЕРВЕР
-===================================== */
-
-function extractOneServer(json){
-
-    /*
-       Вариант:
-
-       Сам сервер уже является объектом.
-    */
-
-    if(
-        json &&
-        typeof json === "object" &&
-        json.protocol &&
-        isSupportedProtocol(json.protocol)
-    ){
-
-        return cleanServer(json);
-    }
-
-
-    /*
-       Полный Xray config:
-
-       outbounds: [
-          proxy,
-          direct,
-          block
-       ]
-
-       Берём только первый настоящий proxy.
-    */
-
-    if(
-        json &&
-        Array.isArray(json.outbounds)
-    ){
-
-        const proxy =
-            json.outbounds.find(
-                item =>
-                    item &&
-                    item.protocol &&
-                    isSupportedProtocol(
-                        item.protocol
-                    ) &&
-                    item.tag !== "direct" &&
-                    item.tag !== "block" &&
-                    item.tag !== "dns-out"
-            );
-
-
-        if(proxy){
-
-            return cleanServer(proxy);
-        }
-
-    }
-
-
-    /*
-       Если сервер лежит в servers.
-    */
-
-    if(
-        json &&
-        Array.isArray(json.servers)
-    ){
-
-        const server =
-            json.servers.find(
-                item =>
-                    item &&
-                    item.protocol &&
-                    isSupportedProtocol(
-                        item.protocol
-                    )
-            );
-
-        if(server){
-
-            return cleanServer(server);
-        }
-
-    }
-
-
-    /*
-       Если формат:
-
-       {
-          "server": {...}
-       }
-    */
-
-    if(
-        json &&
-        json.server &&
-        typeof json.server === "object" &&
-        json.server.protocol
-    ){
-
-        return cleanServer(
-            json.server
-        );
-
-    }
-
-
-    return null;
-
-}
-
-
-/* =====================================
-   ПРОТОКОЛЫ
-===================================== */
-
-function isSupportedProtocol(protocol){
-
-    return [
-        "vless",
-        "vmess",
-        "trojan",
-        "shadowsocks",
-        "http",
-        "socks"
-    ].includes(
-        String(protocol).toLowerCase()
-    );
-
-}
-
-
-/* =====================================
-   КОПИЯ СЕРВЕРА
-===================================== */
-
-function cleanServer(server){
-
-    return JSON.parse(
-        JSON.stringify(server)
-    );
-
-}
-
-
-/* =====================================
-   УНИКАЛЬНЫЙ TAG
-===================================== */
-
-function createUniqueTag(base){
-
-    let clean =
-        String(base)
-        .replace(/[^\wа-яА-ЯёЁ -]/g,"")
-        .trim();
-
-    if(!clean){
-
-        clean = "proxy";
-
-    }
-
-
-    /*
-       Если это стандартный tag proxy,
-       превращаем в Server 1,
-       Server 2 и т.д.
-    */
-
-    let candidate = clean;
-
-    let number = 2;
-
-
-    while(
-        servers.some(
-            s => s.tag === candidate
-        )
-    ){
-
-        candidate =
-            clean + "-" + number;
-
-        number++;
-
-    }
-
-
-    return candidate;
-
-}
-
-
-/* =====================================
-   ИМЯ СЕРВЕРА
-===================================== */
-
-function getServerName(server){
-
-    try{
-
-        if(
-            server.settings &&
-            server.settings.vnext &&
-            server.settings.vnext[0]
-        ){
-
-            return (
-                server.settings.vnext[0].address ||
-                "Server"
-            );
-
-        }
-
-        if(
-            server.settings &&
-            server.settings.servers &&
-            server.settings.servers[0]
-        ){
-
-            return (
-                server.settings.servers[0].address ||
-                "Server"
-            );
-
-        }
-
-    }catch{}
-
-    return "Server";
-
-}
-
-
-/* =====================================
-   RENDER
-===================================== */
-
-function render(){
-
-    const box =
-        document.getElementById("servers");
-
-    document.getElementById(
-        "count"
-    ).textContent = servers.length;
-
-
-    if(servers.length === 0){
-
-        box.innerHTML =
-            `<div class="empty">
-                Пока нет добавленных серверов
-            </div>`;
-
-        return;
-
-    }
-
-
-    box.innerHTML = "";
-
-
-    servers.forEach(
-        (server,index)=>{
-
-            const address =
-                getAddress(server);
-
-
-            const div =
-                document.createElement("div");
-
-            div.className = "server";
-
-
-            div.innerHTML = `
-
-                <div class="server-info">
-
-                    <div class="server-title">
-                        ${escapeHTML(
-                            server.tag ||
-                            "Server"
-                        )}
-
-                        <span class="badge">
-                            ${escapeHTML(
-                                server.protocol ||
-                                ""
-                            )}
-                        </span>
-                    </div>
-
-                    <div class="server-address">
-                        ${escapeHTML(address)}
-                    </div>
-
-                </div>
-
-                <button
-                    class="danger"
-                    onclick="deleteServer(${index})"
-                >
-                    Удалить
-                </button>
-
-            `;
-
-
-            box.appendChild(div);
-
-        }
-    );
-
-}
-
-
-/* =====================================
-   ADDRESS
-===================================== */
-
-function getAddress(server){
-
-    try{
-
-        if(
-            server.settings &&
-            server.settings.vnext &&
-            server.settings.vnext[0]
-        ){
-
-            const v =
-                server.settings.vnext[0];
-
-            return (
-                v.address +
-                (v.port
-                    ? ":" + v.port
-                    : "")
-            );
-
-        }
-
-
-        if(
-            server.settings &&
-            server.settings.servers &&
-            server.settings.servers[0]
-        ){
-
-            const v =
-                server.settings.servers[0];
-
-            return (
-                v.address ||
-                v.host ||
-                "Server"
-            );
-
-        }
-
-    }catch{}
-
-    return "Адрес не определён";
-
-}
-
-
-/* =====================================
-   DELETE
-===================================== */
-
-function deleteServer(index){
-
-    if(
-        !confirm(
-            "Удалить этот сервер?"
-        )
-    ){
-
-        return;
-    }
-
-
-    servers.splice(index,1);
-
-    save();
-
-    render();
-
-    generate();
-
-    status("Сервер удалён");
-
-}
-
-
-/* =====================================
-   AUTO
-===================================== */
-
-function createAutoOutbound(){
-
-    /*
-       Это отдельный outbound.
-
-       Он не заменяет отдельные серверы.
-       Он использует их как кандидатов.
-    */
-
-    const tags =
-        servers.map(
-            server => server.tag
-        );
-
-
-    if(tags.length === 0){
-
-        return null;
-
-    }
-
-
-    return {
-
-        tag:
-            "🔁 Авто — самый быстрый",
-
-        protocol:
-            "freedom",
-
-        settings: {},
-
-        streamSettings: {},
-
-        /* служебная информация для списка */
-        _autoBalancer:
-            "Super_Balancer",
-
-        _servers:
-            tags
-
-    };
-
-}
-
-
-/* =====================================
-   GENERATE
-===================================== */
-
-function generate(){
-
-    /*
-       Создаём отдельные outbounds.
-
-       ВАЖНО:
-       servers остаются отдельными объектами.
-    */
-
-    const separateServers =
-        servers.map(
-            server =>
-                JSON.parse(
-                    JSON.stringify(server)
-                )
-        );
-
-
-    const auto =
-        createAutoOutbound();
-
-
-    const outbounds = [];
-
-
-    /*
-       Сначала Auto.
-    */
-
-    if(auto){
-
-        outbounds.push(auto);
-
-    }
-
-
-    /*
-       Затем каждый сервер отдельно.
-    */
-
-    outbounds.push(
-        ...separateServers
-    );
-
-
-    /*
-       Служебные outbounds.
-    */
-
-    outbounds.push({
-
-        tag:"direct",
-
-        protocol:"freedom"
-
-    });
-
-
-    outbounds.push({
-
-        tag:"block",
-
-        protocol:"blackhole"
-
-    });
-
-
-    outbounds.push({
-
-        tag:"dns-out",
-
-        protocol:"dns"
-
-    });
-
-
-    /*
-       Балансировщик.
-
-       Он выбирает между реальными серверами.
-    */
-
-    const tags =
-        servers.map(
-            s => s.tag
-        );
-
-
-    const config = {
-
-        remarks:
-            listName,
-
-
-        meta:{
-
-            serverDescription:
-                "🔁 Авто — самый быстрый"
-
-        },
-
-
-        dns:{
-
-            servers:[
-
-                "https://1.1.1.1/dns-query",
-
-                "https://1.0.0.1/dns-query"
-
-            ],
-
-            queryStrategy:
-                "UseIPv4"
-
-        },
-
-
-        routing:{
-
-            domainStrategy:
-                "AsIs",
-
-            rules:[
-
-                {
-
-                    type:"field",
-
-                    port:"53",
-
-                    network:"tcp,udp",
-
-                    outboundTag:"dns-out"
-
-                },
-
-                {
-
-                    type:"field",
-
-                    protocol:[
-                        "bittorrent"
-                    ],
-
-                    outboundTag:"block"
-
-                },
-
-                {
-
-                    type:"field",
-
-                    ip:[
-
-                        "10.0.0.0/8",
-
-                        "172.16.0.0/12",
-
-                        "192.168.0.0/16",
-
-                        "127.0.0.0/8",
-
-                        "::1/128",
-
-                        "fc00::/7",
-
-                        "fe80::/10"
-
-                    ],
-
-                    outboundTag:"direct"
-
-                }
-
-            ],
-
-            balancers: tags.length
-                ? [
-
-                    {
-
-                        tag:
-                            "Super_Balancer",
-
-                        selector:
-                            tags,
-
-                        strategy:{
-
-                            type:
-                                "leastLoad",
-
-                            settings:{
-
-                                maxRTT:
-                                    "2s",
-
-                                expected:
-                                    2,
-
-                                baselines:[
-                                    "1s"
-                                ],
-
-                                tolerance:
-                                    0.01
-
-                            }
-
-                        },
-
-                        fallbackTag:
-                            tags[0]
-
-                    }
-
-                ]
-
-                : []
-
-        },
-
-
-        inbounds:[
-
-            {
-
-                tag:"socks",
-
-                port:10808,
-
-                listen:"127.0.0.1",
-
-                protocol:"socks",
-
-                settings:{
-
-                    udp:true,
-
-                    auth:"noauth"
-
-                },
-
-                sniffing:{
-
-                    enabled:true,
-
-                    routeOnly:false,
-
-                    destOverride:[
-
-                        "http",
-
-                        "tls",
-
-                        "quic"
-
-                    ]
-
-                }
-
-            },
-
-            {
-
-                tag:"http",
-
-                port:10809,
-
-                listen:"127.0.0.1",
-
-                protocol:"http",
-
-                settings:{
-
-                    allowTransparent:false
-
-                }
-
-            }
-
+{
+  "dns": {
+    "servers": [
+      "1.1.1.1",
+      "1.0.0.1"
+    ],
+    "queryStrategy": "UseIP"
+  },
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "protocol": [
+          "bittorrent"
         ],
-
-
-        outbounds:
-
-            outbounds,
-
-
-        observatory:{
-
-            subjectSelector:
-                tags,
-
-            probeUrl:
-                "http://www.gstatic.com/generate_204",
-
-            probeInterval:
-                "30s"
-
+        "outboundTag": "direct"
+      }
+    ],
+    "domainMatcher": "hybrid",
+    "domainStrategy": "IPIfNonMatch"
+  },
+  "inbounds": [
+    {
+      "tag": "socks",
+      "port": 10808,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "settings": {
+        "udp": true,
+        "auth": "noauth"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": false,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      }
+    },
+    {
+      "tag": "http",
+      "port": 10809,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "settings": {
+        "allowTransparent": false
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": false,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "marnora.ferreo.sbs",
+            "port": 443,
+            "users": [
+              {
+                "id": "a5687e58-ddee-4820-a165-18f66337df4f",
+                "encryption": "none",
+                "flow": "xtls-rprx-vision"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "tcpSettings": {},
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "marnora.ferreo.sbs",
+          "publicKey": "HKKWGVu7xJfscDTH_28WhqSfSnp8fA5jpj7X1eMO-mU",
+          "shortId": "1067b23f928e7618",
+          "fingerprint": "firefox"
         }
-
-    };
-
-
-    document.getElementById(
-        "output"
-    ).textContent =
-        JSON.stringify(
-            config,
-            null,
-            2
-        );
-
-}
-
-
-/* =====================================
-   COPY
-===================================== */
-
-async function copyOutput(){
-
-    const text =
-        document.getElementById(
-            "output"
-        ).textContent;
-
-
-    try{
-
-        await navigator.clipboard.writeText(text);
-
-        status(
-            "Итоговый JSON скопирован"
-        );
-
-    }catch{
-
-        /*
-           Резервный способ.
-        */
-
-        const area =
-            document.createElement("textarea");
-
-        area.value = text;
-
-        document.body.appendChild(area);
-
-        area.select();
-
-        document.execCommand("copy");
-
-        area.remove();
-
-        status(
-            "Итоговый JSON скопирован"
-        );
-
+      }
+    },
+    {
+      "tag": "direct",
+      "protocol": "freedom"
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole"
     }
-
+  ],
+  "remarks": "🇺🇸 Дарвин ВПН | США"
 }
-
-
-/* =====================================
-   DOWNLOAD
-===================================== */
-
-function downloadJSON(){
-
-    const text =
-        document.getElementById(
-            "output"
-        ).textContent;
-
-
-    const blob =
-        new Blob(
-            [text],
-            {
-                type:"application/json"
-            }
-        );
-
-
-    const url =
-        URL.createObjectURL(blob);
-
-
-    const a =
-        document.createElement("a");
-
-
-    a.href = url;
-
-    a.download =
-        safeFileName(listName)
-        + ".json";
-
-
-    document.body.appendChild(a);
-
-    a.click();
-
-    a.remove();
-
-    URL.revokeObjectURL(url);
-
-}
-
-
-/* =====================================
-   CLEAR
-===================================== */
-
-function clearInput(){
-
-    document.getElementById(
-        "jsonInput"
-    ).value = "";
-
-}
-
-
-/* =====================================
-   CLEAR ALL
-===================================== */
-
-function clearAll(){
-
-    if(
-        !confirm(
-            "Удалить все серверы?"
-        )
-    ){
-
-        return;
+{
+  "dns": {
+    "servers": [
+      "1.1.1.1",
+      "1.0.0.1"
+    ],
+    "queryStrategy": "UseIP"
+  },
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "protocol": [
+          "bittorrent"
+        ],
+        "outboundTag": "direct"
+      }
+    ],
+    "domainMatcher": "hybrid",
+    "domainStrategy": "IPIfNonMatch"
+  },
+  "inbounds": [
+    {
+      "tag": "socks",
+      "port": 10808,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "settings": {
+        "udp": true,
+        "auth": "noauth"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": false,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      }
+    },
+    {
+      "tag": "http",
+      "port": 10809,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "settings": {
+        "allowTransparent": false
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": false,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      }
     }
-
-
-    servers = [];
-
-    save();
-
-    render();
-
-    generate();
-
-    status(
-        "Все серверы удалены"
-    );
-
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "marnora.ferreo.sbs",
+            "port": 443,
+            "users": [
+              {
+                "id": "a5687e58-ddee-4820-a165-18f66337df4f",
+                "encryption": "none",
+                "flow": "xtls-rprx-vision"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "tcpSettings": {},
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "marnora.ferreo.sbs",
+          "publicKey": "HKKWGVu7xJfscDTH_28WhqSfSnp8fA5jpj7X1eMO-mU",
+          "shortId": "1067b23f928e7618",
+          "fingerprint": "firefox"
+        }
+      }
+    },
+    {
+      "tag": "direct",
+      "protocol": "freedom"
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole"
+    }
+  ],
+  "remarks": "🇺🇸 Дарвин ВПН | США"
 }
-
-
-/* =====================================
-   HELPERS
-===================================== */
-
-function safeFileName(name){
-
-    return String(name)
-        .replace(/[\\/:*?"<>|]/g,"_")
-        .trim() ||
-        "servers";
-
-}
-
-
-function escapeHTML(text){
-
-    return String(text)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-
-}
-
-
-/* =====================================
-   START
-===================================== */
-
-render();
-
-generate();
-
-</script></body>
-</html>
