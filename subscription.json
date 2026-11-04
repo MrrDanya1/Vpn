@@ -1,0 +1,995 @@
+[
+  {
+    "dns": {
+      "servers": [
+        "1.1.1.1",
+        "1.0.0.1"
+      ],
+      "queryStrategy": "UseIP"
+    },
+    "inbounds": [
+      {
+        "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "socks",
+        "settings": {
+          "udp": true,
+          "auth": "noauth"
+        },
+        "sniffing": {
+          "enabled": true,
+          "routeOnly": false,
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ]
+        }
+      },
+      {
+        "tag": "http",
+        "port": 10809,
+        "listen": "127.0.0.1",
+        "protocol": "http",
+        "settings": {
+          "allowTransparent": false
+        },
+        "sniffing": {
+          "enabled": true,
+          "routeOnly": false,
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ]
+        }
+      }
+    ],
+    "outbounds": [
+      {
+        "tag": "proxy",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "80.242.57.107",
+              "port": 443,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node18.ethervds.com",
+            "publicKey": "QZz4tjRkxYsgTZBlRALOQU4O5YnAGtSGkXF8OSX11m8",
+            "shortId": "57a2f9bf09b73cf3",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-2",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "status.ethervds.com",
+              "port": 49093,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node19.ethervds.com",
+            "publicKey": "QZz4tjRkxYsgTZBlRALOQU4O5YnAGtSGkXF8OSX11m8",
+            "shortId": "57a2f9bf09b73cf3",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-3",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "31.77.28.204",
+              "port": 443,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node12.ethervds.com",
+            "publicKey": "0gAAFRMA-5z5b-BHVDa38JJGT3InTkSnGSrSso_tn10",
+            "shortId": "57a2f9bf09b73cf3",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-4",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "92.53.115.55",
+              "port": 46046,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node20.ethervds.com",
+            "publicKey": "QZz4tjRkxYsgTZBlRALOQU4O5YnAGtSGkXF8OSX11m8",
+            "shortId": "57a2f9bf09b73cf3",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-5",
+        "protocol": "shadowsocks",
+        "settings": {
+          "servers": [
+            {
+              "address": "list.list",
+              "port": 1234,
+              "password": "j7M7pE9enqrocUTKXqyTdFubocdZHzuT",
+              "method": "chacha20-ietf-poly1305",
+              "uot": false,
+              "UoTVersion": 1
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "none"
+        }
+      },
+      {
+        "tag": "proxy-6",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "edge-node19.ethervds.com",
+              "port": 8443,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node19.ethervds.com",
+            "publicKey": "QZz4tjRkxYsgTZBlRALOQU4O5YnAGtSGkXF8OSX11m8",
+            "shortId": "57a2f9bf09b73cf3",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-7",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "edge-node26.ethervds.com",
+              "port": 443,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node26.ethervds.com",
+            "publicKey": "QZz4tjRkxYsgTZBlRALOQU4O5YnAGtSGkXF8OSX11m8",
+            "shortId": "57a2f9bf09b73cf3",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-8",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "72.56.91.211",
+              "port": 47790,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node18.ethervds.com",
+            "publicKey": "QZz4tjRkxYsgTZBlRALOQU4O5YnAGtSGkXF8OSX11m8",
+            "shortId": "57a2f9bf09b73cf3",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-9",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "191.217.214.44",
+              "port": 443,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node09.ethervds.com",
+            "publicKey": "0gAAFRMA-5z5b-BHVDa38JJGT3InTkSnGSrSso_tn10",
+            "shortId": "57a2f9bf09b73cf3",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-10",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "status.ethervds.com",
+              "port": 47038,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node18.ethervds.com",
+            "publicKey": "QZz4tjRkxYsgTZBlRALOQU4O5YnAGtSGkXF8OSX11m8",
+            "shortId": "57a2f9bf09b73cf3",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-11",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "edge-node20.ethervds.com",
+              "port": 9443,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node20.ethervds.com",
+            "publicKey": "QZz4tjRkxYsgTZBlRALOQU4O5YnAGtSGkXF8OSX11m8",
+            "shortId": "57a2f9bf09b73cf3",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-12",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "94.183.152.152",
+              "port": 2053,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node09.ethervds.com",
+            "publicKey": "0gAAFRMA-5z5b-BHVDa38JJGT3InTkSnGSrSso_tn10",
+            "shortId": "57a2f9bf09b73cf3",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-13",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "92.53.115.55",
+              "port": 49090,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node19.ethervds.com",
+            "publicKey": "QZz4tjRkxYsgTZBlRALOQU4O5YnAGtSGkXF8OSX11m8",
+            "shortId": "57a2f9bf09b73cf3",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-14",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "191.217.214.45",
+              "port": 47032,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node09.ethervds.com",
+            "publicKey": "0gAAFRMA-5z5b-BHVDa38JJGT3InTkSnGSrSso_tn10",
+            "shortId": "57a2f9bf09b73cf3",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-15",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "edge-node24.ethervds.com",
+              "port": 443,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node24.ethervds.com",
+            "publicKey": "QZz4tjRkxYsgTZBlRALOQU4O5YnAGtSGkXF8OSX11m8",
+            "shortId": "57a2f9bf09b73cf3",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-16",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "191.217.214.45",
+              "port": 443,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node16.ethervds.com",
+            "publicKey": "cZsRvk8pr8wfYiX1CNxdDjR38tow3HuL6IpBj8P82l8",
+            "shortId": "e18eda8458cab0d7",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-17",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "94.183.167.96",
+              "port": 443,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node25.ethervds.com",
+            "publicKey": "QZz4tjRkxYsgTZBlRALOQU4O5YnAGtSGkXF8OSX11m8",
+            "shortId": "57a2f9bf09b73cf3",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "direct",
+        "protocol": "freedom"
+      },
+      {
+        "tag": "block",
+        "protocol": "blackhole"
+      }
+    ],
+    "burstObservatory": {
+      "pingConfig": {
+        "timeout": "3s",
+        "interval": "1m",
+        "sampling": 1,
+        "destination": "http://www.gstatic.com/generate_204",
+        "connectivity": ""
+      },
+      "subjectSelector": [
+        "proxy"
+      ]
+    },
+    "remarks": "Fast servers",
+    "meta": {
+      "serverDescription": "Автоматический выбор VPN"
+    }
+  },
+  {
+    "dns": {
+      "servers": [
+        "1.1.1.1",
+        "1.0.0.1"
+      ],
+      "queryStrategy": "UseIP"
+    },
+    "inbounds": [
+      {
+        "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "socks",
+        "settings": {
+          "udp": true,
+          "auth": "noauth"
+        },
+        "sniffing": {
+          "enabled": true,
+          "routeOnly": false,
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ]
+        }
+      },
+      {
+        "tag": "http",
+        "port": 10809,
+        "listen": "127.0.0.1",
+        "protocol": "http",
+        "settings": {
+          "allowTransparent": false
+        },
+        "sniffing": {
+          "enabled": true,
+          "routeOnly": false,
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ]
+        }
+      }
+    ],
+    "outbounds": [
+      {
+        "tag": "proxy",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "37.9.4.97",
+              "port": 443,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "grpcSettings": {
+            "serviceName": "ns",
+            "authority": "id.pervye.ru",
+            "multiMode": false
+          },
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "id.pervye.ru",
+            "publicKey": "QZz4tjRkxYsgTZBlRALOQU4O5YnAGtSGkXF8OSX11m8",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-2",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "mark-rubick.xrent.cloud",
+              "port": 10448,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node08.ethervds.com",
+            "publicKey": "SJEbErtlRxBIwqIJYbttuF59vN6jbGt7SX2sRvZRS0Q",
+            "shortId": "d1520ca3e02cda34",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-3",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "mark-rubick.xrent.cloud",
+              "port": 10448,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node08.ethervds.com",
+            "publicKey": "SJEbErtlRxBIwqIJYbttuF59vN6jbGt7SX2sRvZRS0Q",
+            "shortId": "d1520ca3e02cda34",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-4",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "188.225.25.170",
+              "port": 443,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "grpcSettings": {
+            "serviceName": "ns",
+            "authority": "id.pervye.ru",
+            "multiMode": false
+          },
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "id.pervye.ru",
+            "publicKey": "QZz4tjRkxYsgTZBlRALOQU4O5YnAGtSGkXF8OSX11m8",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-5",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "cdn289.whitenw.net",
+              "port": 7448,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node07.ethervds.com",
+            "publicKey": "_X0rpu47NKtCNY_Pz55bzgw5nz8hvBB0QiXSv-yOKFE",
+            "shortId": "3a7d3407fa9f62c2",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-6",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "cabinet.ethervpn.app",
+              "port": 443,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "path": "api-metrics-v1",
+            "host": "cabinet.ethervpn.app",
+            "headers": {
+              "Host": "cabinet.ethervpn.app"
+            }
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "cabinet.ethervpn.app",
+            "enableSessionResumption": false,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2"
+            ]
+          }
+        }
+      },
+      {
+        "tag": "proxy-7",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.243.234.65",
+              "port": 7449,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node06.ethervds.com",
+            "publicKey": "DS2engd0Rzib6bHj4SGkqQv3YTzrHqM4pmY69wQm9EI",
+            "shortId": "1681a15a682ea00b",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-8",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "87.242.95.164",
+              "port": 7445,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node08.ethervds.com",
+            "publicKey": "SJEbErtlRxBIwqIJYbttuF59vN6jbGt7SX2sRvZRS0Q",
+            "shortId": "d1520ca3e02cda34",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-9",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "87.242.95.129",
+              "port": 7448,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node05.ethervds.com",
+            "publicKey": "iImug6rGCJtMiCiZmHrZeYSnGQwj-uXDTd41ZZANXT4",
+            "shortId": "9579a869004e61a5",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-10",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "188.225.25.176",
+              "port": 443,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "grpcSettings": {
+            "serviceName": "ns",
+            "authority": "id.pervye.ru",
+            "multiMode": false
+          },
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "id.pervye.ru",
+            "publicKey": "QZz4tjRkxYsgTZBlRALOQU4O5YnAGtSGkXF8OSX11m8",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "proxy-11",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "mark-rubick.xrent.cloud",
+              "port": 10448,
+              "users": [
+                {
+                  "id": "ce0bcbae-76e7-4262-b741-ae6f777192e9",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "tcpSettings": {},
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "edge-node08.ethervds.com",
+            "publicKey": "SJEbErtlRxBIwqIJYbttuF59vN6jbGt7SX2sRvZRS0Q",
+            "shortId": "d1520ca3e02cda34",
+            "fingerprint": "firefox"
+          }
+        }
+      },
+      {
+        "tag": "direct",
+        "protocol": "freedom"
+      },
+      {
+        "tag": "block",
+        "protocol": "blackhole"
+      }
+    ],
+    "burstObservatory": {
+      "pingConfig": {
+        "timeout": "3s",
+        "interval": "1m",
+        "sampling": 1,
+        "destination": "http://www.gstatic.com/generate_204",
+        "connectivity": ""
+      },
+      "subjectSelector": [
+        "proxy"
+      ]
+    },
+    "remarks": "Obhod servers"
+  }
+]
